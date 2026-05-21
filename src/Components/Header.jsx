@@ -1,7 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { useState } from 'react'
 
-const Header = () => {
+const Header = ({setMobileSidebar}) => {
+
+
   return (
     <>
       {/* Header Container*/}
@@ -44,6 +47,10 @@ const Header = () => {
         Blogs
         </Link>
       </div>
+
+      <img src="hamburger.svg" alt="" 
+      className='h-10 sm:hidden' 
+      onClick={()=>{setMobileSidebar(true)}} />
 
       </div>
     </>
