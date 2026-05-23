@@ -35,6 +35,18 @@ const Blogs = () => {
   }
 
 
+  // Function to get the color of the tag
+  const tagColor = (tag) => {
+
+    if (tag.length < 4) return "bg-[#1E3A8A]"
+    else if (tag.length < 8) return "bg-[#14532D]"
+    else if (tag.length < 12) return "bg-[#4C1D95]"
+    else if (tag.length < 16) return "bg-[#7F1D1D]"
+    else return "bg-[#27272A]"
+    
+    }
+  
+
   if (loading)
     return (
       <>
@@ -45,31 +57,73 @@ const Blogs = () => {
   return (
     <>
       {/* Body Container */}
-      <div className="h-full w-full flex flex-wrap justify-evenly gap-4 py-10 px-5">
+      <div className="h-full w-full flex flex-wrap justify-evenly gap-6 py-10 px-5">
         {blogs.map((obj) => {
           return (
             <>
-              <div className="bg-[#2C2C2C] p-4 flex flex-col  rounded-lg gap-4 max-w-sm ">
+              <div 
+              className="bg-[#0f0f0f] p-4 flex flex-col  rounded-lg gap-4 max-w-sm cursor-pointer hover:border-y hover:border-red-500" 
+              key={`${obj.uid} box`}>
+              
                 {/* IMAGE */}
-                <p>IMAGE</p>
+                <img 
+                src={`${obj.img_url}`} 
+                alt="" 
+                className="rounded-md"
+                key={`${obj.uid} image`} />
+
+                {/* Domain */}
+                <div
+                className="text-sm text-neutral-500 font-bold">
+                  {obj.domain}
+                </div>
 
                 {/* Title */}
-                <div className="text-xl font-bold">{obj.title}</div>
+                <div 
+                className="text-2xl font-bold"
+                key={`${obj.uid} title`}>
+                  {obj.title}
+                </div>
 
                 {/* Details */}
-                <div className="text-neutral-500">{truncate(obj.paragraph)}</div>
+                <div 
+                className="text-neutral-500 text-[16px]"
+                key={`${obj.uid} para`}>
+                  {truncate(obj.paragraph)}
+                </div>
 
                 {/* Tags */}
-                <div className="flex gap-2">
+                <div 
+                className="flex flex-wrap gap-2"
+                key={`${obj.uid} tagbox`}>
+                  
                   {obj.tags.map(tag => {
-                    return tag
+                    return (
+                      <p
+                      className={`p-1 px-2 text-sm rounded-md ${tagColor(tag)}`}
+                      key={`${obj.uid} ${tag}`}>
+                      {tag}
+                      </p>
+                    )
                   })}
                 </div>
 
                 {/* Author and Published Date */}
-                <div className="flex justify-between text-neutral-500">
-                  <span>{obj.author}</span>
-                  <span>{obj.date}</span>
+                <div 
+                className="flex justify-between text-neutral-500"
+                key={`${obj.uid} author and date`}>
+
+                  {/* Author */}
+                  <span
+                  key={`${obj.uid} author`}>
+                    {obj.author}
+                  </span>
+
+                  {/* Date */}
+                  <span
+                  key={`${obj.uid} date`}>
+                    {obj.date}
+                  </span>
                 </div>
               </div>
             </>
