@@ -27,6 +27,18 @@ const Blogpost = () => {
     }, [])
 
 
+    // Function to get the color of the tag
+  const tagColor = (tag) => {
+
+    if (tag.length < 4) return "bg-[#1E3A8A]"
+    else if (tag.length < 8) return "bg-[#14532D]"
+    else if (tag.length < 12) return "bg-[#4C1D95]"
+    else if (tag.length < 16) return "bg-[#7F1D1D]"
+    else return "bg-[#27272A]"
+    
+    }
+
+
     // Loading Page
     if(loading) return (
         <><ClassicSpinner/></>
@@ -37,14 +49,17 @@ const Blogpost = () => {
     <div
     className='p-4 flex flex-col gap-10'>
         {/* Image */}
-    <img 
-    src={blog.img_url} 
-    alt="" 
-    className='rounded-xl max-h-40 aspect-square'/>
+    <div
+    className='flex justify-center align-middle'>
+        <img 
+        src={blog.img_url} 
+        alt="" 
+        className='rounded-xl max-h-100 max-w-100'/>
+    </div>
 
     {/* Title */}
     <span
-    className='text-2xl font-bold flex justify-center align-middle'>
+    className='text-4xl font-bold flex justify-center align-middle'>
         {blog.title}
     </span>
 
@@ -59,6 +74,29 @@ const Blogpost = () => {
         {blog.paragraph}
     </span>
     
+    </div>
+
+    <div
+    className='flex not-sm:flex-col gap-4 justify-center align-middle my-10'>
+        {/* Tags */}
+        <div
+        className='flex flex-1 gap-4'>
+            {blog.tags.map(tag => {
+                return (
+                    <div
+                    key={`${blog.uid}, ${tag}`}
+                    className={`${tagColor(tag)} p-1 px-2 rounded-lg`}>
+                        {tag}
+                    </div>
+                )
+            })}
+        </div>
+
+            <div
+            className='text-neutral-500'>
+                {blog.author} &#183; {blog.date}
+            </div>
+
     </div>
     </>
   )

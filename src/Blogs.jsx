@@ -1,5 +1,6 @@
 import React from "react";
 import ClassicSpinner from "./Components/Loading";
+import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 const Blogs = () => {
@@ -61,7 +62,8 @@ const Blogs = () => {
         {blogs.map((obj) => {
           return (
             <>
-              <div 
+              <Link 
+              to={`/blogs/${obj.uid}`}
               className="bg-[#0f0f0f] p-4 flex flex-col  rounded-lg gap-4 max-w-sm cursor-pointer hover:border-y hover:border-red-500" 
               key={`${obj.uid} box`}>
               
@@ -125,7 +127,7 @@ const Blogs = () => {
                     {obj.date}
                   </span>
                 </div>
-              </div>
+              </Link>
             </>
           );
         })}
