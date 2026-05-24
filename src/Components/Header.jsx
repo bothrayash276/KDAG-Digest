@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { useState } from 'react'
 
-const Header = ({setMobileSidebar}) => {
+const Header = ({setMobileSidebar, setSearchbar}) => {
 
 
   return (
@@ -26,7 +26,8 @@ const Header = ({setMobileSidebar}) => {
           <img src="/search.svg" alt="" className='h-5' />
           
           <input type="text" placeholder='Search' 
-          className='placeholder:text-white flex-1 outline-none text-white'/>
+          className='placeholder:text-white flex-1 outline-none text-white'
+          onChange={(e)=>{setSearchbar(e.target.value)}}/>
         </div>
 
         
