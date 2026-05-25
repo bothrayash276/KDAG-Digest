@@ -29,7 +29,6 @@ const Blogs = ({searchbar}) => {
   useEffect(() => {
     if(searchbar.length == 0) {
       setBlogs(blogFile)
-      // console.log("YES")
     }
     else {
     const blogByTitle = blogFile.filter(obj => obj.title.includes(searchbar));
@@ -38,7 +37,7 @@ const Blogs = ({searchbar}) => {
     const customBlogs = [...blogByTitle, ...blogByAuthor]
     setBlogs(customBlogs)
     }
-  }, [searchbar])
+  }, [searchbar, blogFile])
   
 
   if (loading)
