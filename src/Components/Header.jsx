@@ -32,7 +32,7 @@ const Header = ({setMobileSidebar, setSearchbar, filter, setFilter, domain, setD
 
           <img src="./filter.svg" 
           alt="" 
-          className='h-5 cursor-pointer'
+          className='h-5 cursor-pointer not-sm:hidden'
           onClick={()=>{setFilter(!filter)}} />
 
           <Dropdown
@@ -51,16 +51,11 @@ const Header = ({setMobileSidebar, setSearchbar, filter, setFilter, domain, setD
           {/* Home Button */}
         <Link 
         to={'/'}
-        className='text-white hover:text-[#E92F30]'>
-        Home
+        className='text-white hover:text-[#E92F30] flex gap-2 cursor-pointer justify-center align-middle'>
+        <img src="./HOMEBUTTON.svg" alt="" 
+        className='h-5'/>
         </Link>
 
-        {/* Blog Button */}
-        <Link 
-        to={'/blogs'}
-        className='text-white hover:text-[#E92F30]'>
-        Blogs
-        </Link>
       </div>
 
       <img src="hamburger.svg" alt="" 
