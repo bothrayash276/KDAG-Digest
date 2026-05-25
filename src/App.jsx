@@ -1,6 +1,5 @@
 import React from 'react'
 import { useState } from 'react'
-import Home from './Home'
 import Blogs from './Blogs.jsx'
 import Blogpost from './Blogpost.jsx'
 import { Routes, Route } from 'react-router-dom'
@@ -10,13 +9,51 @@ const App = () => {
 
   // Search Bar
   const [searchbar, setSearchbar] = useState("")
+  const [tags, setTags] = useState([])
+  const [filter, setFilter] = useState(false)
+  const [domain, setDomain] = useState([])
 
   return (
     <>
     <Routes>
-      <Route path={'/'} element={<><Header/><Home /></>}/>
-      <Route path={'/blogs'} element={<><Header setSearchbar = {setSearchbar} /><Blogs searchbar = {searchbar} /></>} />
-      <Route path={'/blogs/:uid'} element={<><Header /><Blogpost /></>} />
+      <Route 
+      path={'/'} 
+      element= 
+        {   
+          <>
+            <Header 
+            setSearchbar = {setSearchbar} 
+            tags={tags}
+            setTags = {setTags} 
+            filter={filter} 
+            setFilter={setFilter}
+            domain={domain}
+            setDomain={setDomain} />
+
+            <Blogs 
+            searchbar = {searchbar}
+            tags = {tags} 
+            />
+          </>
+        } />
+
+      <Route 
+        path={'/:uid'} 
+        element= 
+          { <>
+              <Header 
+              setSearchbar = {setSearchbar} 
+              tags={tags}
+              setTags = {setTags} 
+              filter={filter} 
+              setFilter={setFilter}
+              domain={domain}
+              setDomain={setDomain}  />
+              
+              <Blogpost />
+              </>
+          } />
+
     </Routes>
     </>
   )

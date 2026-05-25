@@ -32,7 +32,10 @@ const Blogs = ({searchbar}) => {
       // console.log("YES")
     }
     else {
-    const customBlogs = blogFile.filter(obj => obj.title.includes(searchbar));
+    const blogByTitle = blogFile.filter(obj => obj.title.includes(searchbar));
+    const blogByAuthor = blogFile.filter(obj => obj.author.includes(searchbar));
+    
+    const customBlogs = [...blogByTitle, ...blogByAuthor]
     setBlogs(customBlogs)
     }
   }, [searchbar])

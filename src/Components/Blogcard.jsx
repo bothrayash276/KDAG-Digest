@@ -30,7 +30,7 @@ const Blogcard = ({obj}) => {
   return (
     <>
     <Link 
-              to={`/blogs/${obj.uid}`}
+              to={`/${obj.uid}`}
               className="bg-[#0f0f0f] p-4 flex flex-col  rounded-lg gap-4 max-w-sm cursor-pointer hover:border-y hover:border-red-500" 
               key={`${obj.uid} box`}>
               

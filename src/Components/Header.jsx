@@ -1,15 +1,16 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { useState } from 'react'
+import Dropdown from './Dropdown'
 
-const Header = ({setMobileSidebar, setSearchbar}) => {
+const Header = ({setMobileSidebar, setSearchbar, filter, setFilter, domain, setDomain, tags, setTags}) => {
 
 
   return (
     <>
       {/* Header Container*/}
       <div
-      className='w-full flex items-center gap-3 sm:justify-between'>
+      className='w-full flex items-center gap-3 sm:justify-between '>
 
         {/* Logo */}
         <img 
@@ -22,12 +23,25 @@ const Header = ({setMobileSidebar, setSearchbar}) => {
         className='h-10 sm:hidden'/>
 
         {/* Search Bar */}
-        <div className='flex-1 gap-5 border-2 border-[#333333] bg-[#1a1a1a] h-12 flex items-center px-5 py-6 rounded-xl sm:max-w-[50vw]'>
+        <div className='flex-1 gap-5 border-2 border-[#333333] bg-[#1a1a1a] h-12 flex items-center px-5 py-6 rounded-xl sm:max-w-[50vw] relative'>
           <img src="/search.svg" alt="" className='h-5' />
           
-          <input type="text" placeholder='Search' 
+          <input type="text" placeholder='Search by title or author' 
           className='placeholder:text-white flex-1 outline-none text-white'
           onChange={(e)=>{setSearchbar(e.target.value)}}/>
+
+          <img src="./filter.svg" 
+          alt="" 
+          className='h-5 cursor-pointer'
+          onClick={()=>{setFilter(!filter)}} />
+
+          <Dropdown
+          domain={domain}
+          setDomain={setDomain}
+          tags={tags}
+          setTags={setTags}
+          filter={filter} />
+
         </div>
 
         
