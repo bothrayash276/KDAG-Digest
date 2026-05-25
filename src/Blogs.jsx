@@ -7,13 +7,14 @@ import { useEffect, useState } from "react";
 const Blogs = ({searchbar}) => {
   const [loading, setLoading] = useState(true);
   const [blogs, setBlogs] = useState([]);
+  const [blogFile, setBlogFile] = useState([])
 
   useEffect(() => {
     const getBlogs = async () => {
       try {
         const fetchBlogs = await fetch("http://localhost:3000/posts");
         const blogData = await fetchBlogs.json();
-        setBlogs(blogData);
+        setBlogFile(blogData);
       } catch (e) {
         console.log(e);
       } finally {
@@ -22,6 +23,19 @@ const Blogs = ({searchbar}) => {
     };
     getBlogs();
   }, []);
+
+
+  // Search Bar Operations
+  useEffect(() => {
+    if(searchbar.length == 0) {
+      setBlogs(blogFile)
+      // console.log("YES")
+    }
+    else {
+    const customBlogs = blogFile.filter(obj => obj.title.includes(searchbar));
+    setBlogs(customBlogs)
+    }
+  }, [searchbar])
   
 
   if (loading)

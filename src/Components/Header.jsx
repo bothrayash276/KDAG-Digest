@@ -13,12 +13,12 @@ const Header = ({setMobileSidebar, setSearchbar}) => {
 
         {/* Logo */}
         <img 
-        src="logo.png" 
+        src="./logo.png" 
         alt="The KDAG Digest"
         className='h-10 not-sm:hidden'
          />
 
-        <img src="icon.png" alt="The KDAG Digest" 
+        <img src="./icon.png" alt="The KDAG Digest" 
         className='h-10 sm:hidden'/>
 
         {/* Search Bar */}
