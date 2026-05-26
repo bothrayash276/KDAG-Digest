@@ -11,7 +11,7 @@ const Dropdown = ({tags, domain, setTags, setDomain, filter, setFilter, apply, s
     // Loading data
     useEffect(()=>{
         const getBlogData = async () => {
-            const file = await fetch('http://localhost:3000/posts');
+            const file = await fetch('https://kdag-digest-backend.vercel.app/posts');
             const jsonFile = await file.json()
             let a = [], b = [];
             jsonFile.map((obj) => {

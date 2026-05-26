@@ -12,7 +12,7 @@ const Blogs = ({searchbar, domain, tags, apply}) => {
   useEffect(() => {
     const getBlogs = async () => {
       try {
-        const fetchBlogs = await fetch("http://localhost:3000/posts");
+        const fetchBlogs = await fetch("https://kdag-digest-backend.vercel.app/posts");
         const blogData = await fetchBlogs.json();
         setBlogFile(blogData);
       } catch (e) {

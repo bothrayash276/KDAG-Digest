@@ -13,7 +13,7 @@ const Blogpost = () => {
     useEffect(()=>{
         const getBlogpost = async () => {
             try {
-                const BlogpostFile = await fetch(`http://localhost:3000/posts/${uid}`)
+                const BlogpostFile = await fetch(`https://kdag-digest-backend.vercel.app/posts/${uid}`)
                 const BlogpostData = await BlogpostFile.json();
                 setBlog(BlogpostData[0]);
             } catch (e) {
