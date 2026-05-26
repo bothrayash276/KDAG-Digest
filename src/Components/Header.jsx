@@ -3,14 +3,14 @@ import { Link } from 'react-router-dom'
 import { useState } from 'react'
 import Dropdown from './Dropdown'
 
-const Header = ({setMobileSidebar, setSearchbar, filter, setFilter, domain, setDomain, tags, setTags, apply, setApply}) => {
+const Header = ({setSearchbar, filter, setFilter, domain, setDomain, tags, setTags, apply, setApply}) => {
 
 
   return (
     <>
       {/* Header Container*/}
       <div
-      className='w-full flex items-center gap-3 sm:justify-between '>
+      className='w-full flex items-center gap-3 sm:justify-between relative'>
 
         {/* Logo */}
         <img 
@@ -21,6 +21,8 @@ const Header = ({setMobileSidebar, setSearchbar, filter, setFilter, domain, setD
 
         <img src="./icon.png" alt="The KDAG Digest" 
         className='h-10 sm:hidden'/>
+
+
 
         {/* Search Bar */}
         <div className='flex-1 gap-5 border-2 border-[#333333] bg-[#1a1a1a] h-12 flex items-center px-5 py-6 rounded-xl sm:max-w-[50vw] relative'>
@@ -61,9 +63,9 @@ const Header = ({setMobileSidebar, setSearchbar, filter, setFilter, domain, setD
 
       </div>
 
-      <img src="hamburger.svg" alt="" 
-      className='h-10 sm:hidden' 
-      onClick={()=>{setMobileSidebar(true)}} />
+      <img src="./filter.svg" alt="" 
+      className='h-8 sm:hidden' 
+      onClick={()=>{setFilter(true)}} />
 
       </div>
     </>
