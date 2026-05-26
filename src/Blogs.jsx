@@ -4,7 +4,7 @@ import Blogcard from "./Components/Blogcard";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 
-const Blogs = ({searchbar}) => {
+const Blogs = ({searchbar, domain, tags, apply}) => {
   const [loading, setLoading] = useState(true);
   const [blogs, setBlogs] = useState([]);
   const [blogFile, setBlogFile] = useState([])
@@ -27,17 +27,19 @@ const Blogs = ({searchbar}) => {
 
   // Search Bar Operations
   useEffect(() => {
-    if(searchbar.length == 0) {
+    if(searchbar.length ==- 0 && tags.length === 0 && domain.length === 0) {
       setBlogs(blogFile)
     }
     else {
     const blogByTitle = blogFile.filter(obj => obj.title.includes(searchbar));
     const blogByAuthor = blogFile.filter(obj => obj.author.includes(searchbar));
     
+
+
     const customBlogs = [...blogByTitle, ...blogByAuthor]
     setBlogs(customBlogs)
     }
-  }, [searchbar, blogFile])
+  }, [searchbar, blogFile, apply])
   
 
   if (loading)

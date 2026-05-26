@@ -2,7 +2,7 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 
 
-const Dropdown = ({tags, domain, setTags, setDomain, filter}) => {
+const Dropdown = ({tags, domain, setTags, setDomain, filter, setFilter, apply, setApply}) => {
 
     const [blogFile, setBlogFile] = useState([])
     const [tagsFile, setTagsFile] = useState([])
@@ -110,6 +110,12 @@ const Dropdown = ({tags, domain, setTags, setDomain, filter}) => {
                     </>
                 )
             })}
+
+            <span
+            className='w-full text-center mt-5 bg-red-600 py-1 rounded-xl'
+            onClick={()=> {setApply(apply+1); setFilter(false)}}>
+                Apply
+            </span>
 
         </div>
     </>

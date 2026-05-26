@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { useState } from 'react'
 import Dropdown from './Dropdown'
 
-const Header = ({setMobileSidebar, setSearchbar, filter, setFilter, domain, setDomain, tags, setTags}) => {
+const Header = ({setMobileSidebar, setSearchbar, filter, setFilter, domain, setDomain, tags, setTags, apply, setApply}) => {
 
 
   return (
@@ -40,7 +40,10 @@ const Header = ({setMobileSidebar, setSearchbar, filter, setFilter, domain, setD
           setDomain={setDomain}
           tags={tags}
           setTags={setTags}
-          filter={filter} />
+          filter={filter} 
+          setFilter={setFilter}
+          apply={apply}
+          setApply={setApply} />
 
         </div>
 

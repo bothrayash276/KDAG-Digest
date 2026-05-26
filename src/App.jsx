@@ -12,6 +12,7 @@ const App = () => {
   const [tags, setTags] = useState([])
   const [filter, setFilter] = useState(false)
   const [domain, setDomain] = useState([])
+  const [apply, setApply] = useState([])
 
   return (
     <>
@@ -28,11 +29,15 @@ const App = () => {
             filter={filter} 
             setFilter={setFilter}
             domain={domain}
-            setDomain={setDomain} />
+            setDomain={setDomain}
+            apply={apply}
+            setApply={setApply} />
 
             <Blogs 
             searchbar = {searchbar}
             tags = {tags} 
+            domain = {domain}
+            apply={apply}
             />
           </>
         } />
@@ -48,7 +53,9 @@ const App = () => {
               filter={filter} 
               setFilter={setFilter}
               domain={domain}
-              setDomain={setDomain}  />
+              setDomain={setDomain}
+              apply={apply}
+              setApply={setApply}  />
               
               <Blogpost />
               </>
