@@ -81,7 +81,7 @@ const Dropdown = ({tags, domain, setTags, setDomain, filter, setFilter, apply, s
                         id = {`${d}`}
                         type="checkbox"
                         onChange={(e)=>{domainAppender(e)}}
-                        className='accent-red-500' />
+                        className='accent-red-500 cursor-pointer' />
                         <label>{d}</label>
                     </div>
                     </>
@@ -104,7 +104,7 @@ const Dropdown = ({tags, domain, setTags, setDomain, filter, setFilter, apply, s
                         id = {`${d}`}
                         type="checkbox"
                         onChange={(e)=>{tagsAppender(e)}}
-                        className='accent-red-500' />
+                        className='accent-red-500 cursor-pointer' />
                         <label>{d}</label>
                     </div>
                     </>
@@ -112,7 +112,7 @@ const Dropdown = ({tags, domain, setTags, setDomain, filter, setFilter, apply, s
             })}
 
             <span
-            className='w-full text-center mt-5 bg-red-600 py-1 rounded-xl'
+            className='w-full text-center mt-5 bg-red-600 py-1 rounded-xl cursor-pointer'
             onClick={()=> {setApply(apply+1); setFilter(false)}}>
                 Apply
             </span>
